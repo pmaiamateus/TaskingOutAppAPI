@@ -11,7 +11,7 @@ public class PostUserController : Controller
 {
     [AllowAnonymous]
     [HttpPost("user/")]
-    public async Task<IActionResult> PastAsync(
+    public async Task<IActionResult> PostAsync(
         [FromBody] User UserModel,
         [FromServices] AppDBContext context)
     {
