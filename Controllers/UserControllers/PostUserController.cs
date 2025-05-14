@@ -19,7 +19,7 @@ public class PostUserController : Controller
         {
             if (ModelState.IsValid)
             {
-                User? usercheck = await context.User.FirstOrDefaultAsync(u => u.Name == UserModel.Name);
+                User? usercheck = await context.User.FirstOrDefaultAsync(u => u.Email == UserModel.Email);
                 if (usercheck == null)
                 {
                     UserModel.Membership = "free";
