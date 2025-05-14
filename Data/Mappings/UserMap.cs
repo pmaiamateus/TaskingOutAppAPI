@@ -46,5 +46,8 @@ public class UserMap : IEntityTypeConfiguration<User>
             .HasColumnName("Membership")
             .HasColumnType("varchar")
             .HasMaxLength(10);
+
+        builder.HasMany(x => x.Checklists)
+            .WithOne(x => x.User);
     }
 }

@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using TaskingOutAppAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TaskingOutAppAPI.Models;
 
 namespace TaskingOutAppAPI.Data.Mappings;
 
@@ -15,6 +15,10 @@ public class ChecktaskMap : IEntityTypeConfiguration<Checktask>
         builder.Property(x => x.Id)
             .ValueGeneratedOnAdd()
             .UseIdentityColumn();
+
+        builder.Property(x => x.Index)
+            .HasColumnName("Index")
+            .HasColumnType("int");
 
         builder.Property(x => x.Description)
             .IsRequired()
