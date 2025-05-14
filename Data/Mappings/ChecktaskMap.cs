@@ -8,6 +8,28 @@ public class ChecktaskMap : IEntityTypeConfiguration<Checktask>
 {
     public void Configure(EntityTypeBuilder<Checktask> builder)
     {
-        throw new NotImplementedException();
+        builder.ToTable("Checktasks");
+
+        builder.HasKey(x => x.Id);
+
+        builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd()
+            .UseIdentityColumn();
+
+        builder.Property(x => x.Description)
+            .IsRequired()
+            .HasColumnName("Description")
+            .HasColumnType("varchar")
+            .HasMaxLength(150);
+
+        builder.Property(x => x.IsChecked)
+            .IsRequired()
+            .HasColumnName("IsChecked")
+            .HasColumnType("bit");
+
+        builder.Property(x => x.IsHidden)
+            .IsRequired()
+            .HasColumnName("IsHidden")
+            .HasColumnType("bit");
     }
 }
