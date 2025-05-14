@@ -1,6 +1,6 @@
 ﻿namespace TaskingOutAppAPI.Models;
 
-public class Checktasks
+public class Checktask
 {
     public int Id { get; set; }
     public string Description { get; set; } = "";
