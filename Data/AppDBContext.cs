@@ -10,7 +10,7 @@ public class AppDBContext : DbContext
     public DbSet<Checktask> Checktasks { get; set; }
     public DbSet<Checklist> Checklists { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder options)
-    => options.UseSqlServer("Server=MTS\\SQLEXPRESS;Database=TaskingOutDB;Trust Server Certificate=true;Integrated Security=true;User ID=MTS\\pmaia");
+    => options.UseSqlServer();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new UserMap());
