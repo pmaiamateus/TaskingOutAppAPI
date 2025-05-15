@@ -21,6 +21,7 @@ namespace TaskingOutAppAPI.Migrations
                     Password = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     IsChecked = table.Column<bool>(type: "bit", nullable: false),
                     IsHidden = table.Column<bool>(type: "bit", nullable: false),
+                    ChecklistId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -34,6 +35,7 @@ namespace TaskingOutAppAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "varchar(150)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "varchar(150)", maxLength: 300, nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -42,7 +44,7 @@ namespace TaskingOutAppAPI.Migrations
                         name: "FK_Checktasks_ChecklistId",
                         column: x => x.Id,
                         principalTable: "Checktasks",
-                        principalColumn: "Id",
+                        principalColumn: "ChecklistId",
                         onDelete: ReferentialAction.Restrict);
                 });
             migrationBuilder.CreateTable(
@@ -65,7 +67,7 @@ namespace TaskingOutAppAPI.Migrations
                         name: "FK_Checklist_UserId",
                         column: x => x.Id,
                         principalTable: "User",
-                        principalColumn: "Id",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                 });
         }

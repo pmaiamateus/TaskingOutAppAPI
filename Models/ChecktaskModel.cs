@@ -7,5 +7,5 @@ public class Checktask
     public string Description { get; set; } = "";
     public bool IsChecked { get; set; } = false;
     public bool IsHidden { get; set; } = false;
-    public Checklist Checklist { get; set; } = new();
+    public Checklist? Checklist { get; set; }
 }
